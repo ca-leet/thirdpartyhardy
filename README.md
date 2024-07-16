@@ -14,5 +14,7 @@ This tool is for educational and authorized testing purposes only. Always obtain
 
 ## Installation
 1. Clone this repository 
-2. Run the setup script
-3. Activate venv
+2. Create venv `python3 -m venv venv`
+3. Activate venv `source venv/bin/activate`
+4. Install requirements.txt `pip install -r requirements.txt`
+5. Run (you will be promped to input possible company names (comma separated)): `python3 thirdpartyhardy.py` 
