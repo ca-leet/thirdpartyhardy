@@ -2,7 +2,7 @@
 ## SaaS Login Portal Finder
 
 ### Description
-This Python script is designed to identify potential login portals for various Software as a Service (SaaS) platforms associated with a given company name. It checks common SaaS services by constructing URLs based on the company name and verifying if a login page exists.
+Python script designed to identify potential login portals for various Software as a Service (SaaS) platforms associated with a given company name. It checks common SaaS services (monday,slack,okta,atlassian,zendesk,salesforce) by constructing URLs based on the company name and verifying if a login page exists.
 
 ### partyyyyyyyhardyyyyyy
 - Accepts multiple company names as input
