@@ -23,7 +23,7 @@ def check_company(company):
         ("zendesk", "com"),
         ("salesforce", "com", "my"),
         ("okta", "com"),
-    
+    ]
     found = False
     for service_info in services:
         if len(service_info) == 3:
