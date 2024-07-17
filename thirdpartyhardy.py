@@ -1,8 +1,11 @@
 import requests
 
 # check if subdomain exists
-def check_subdomain(company, service, tld):
-    url = f"https://{company}.{service}.{tld}"
+def check_subdomain(company, service, tld, subdomain=None):
+    if subdomain:
+        url = f"https://{company}.{subdomain}.{service}.{tld}"
+    else:
+        url = f"https://{company}.{service}.{tld}"
     try:
         response = requests.get(url, timeout=5)
         if response.status_code == 200 and ("login" in response.text.lower() or "sign in" in response.text.lower()):
@@ -18,15 +21,21 @@ def check_company(company):
         ("monday", "com"),
         ("atlassian", "net"),
         ("zendesk", "com"),
-        ("salesforce", "com"),
+        ("salesforce", "com", "my"),
         ("okta", "com"),
-    ]
-
+    
     found = False
-    for service, tld in services:
-        if check_subdomain(company, service, tld):
-            print(f"Found login portal: {company}.{service}.{tld}")
-            found = True
+    for service_info in services:
+        if len(service_info) == 3:
+            service, tld, subdomain = service_info
+            if check_subdomain(company, service, tld, subdomain):
+                print(f"Found login portal: {company}.{subdomain}.{service}.{tld}")
+                found = True
+        else:
+            service, tld = service_info
+            if check_subdomain(company, service, tld):
+                print(f"Found login portal: {company}.{service}.{tld}")
+                found = True
 
     if not found:
         print(f"No login portals found for {company}")
