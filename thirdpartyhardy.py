@@ -22,7 +22,8 @@ def check_company(company):
         ("atlassian", "net"),
         ("zendesk", "com"),
         ("salesforce", "com", "my"),
-        ("okta", "com"),
+        ("sharefile", "com"),
+        ("sharepoint", "com"),
     ]
     found = False
     for service_info in services:
